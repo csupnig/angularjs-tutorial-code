@@ -1,12 +1,14 @@
+/* global angular */
+(function () {
 'use strict';
 
 angular.module('tutorialApp', ['ngResource', 'ngAnimate', 'ngRoute'])
-  .config(function($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', { templateUrl: 'articles.html' })
       .when('/about', { template: 'Über unsere Pizzeria' })
       .otherwise({ redirectTo: '/'});
-  })
+  }])
   .directive('price', function(){
     return {
       restrict: 'E',
@@ -15,7 +17,7 @@ angular.module('tutorialApp', ['ngResource', 'ngAnimate', 'ngRoute'])
       },
       template: '<span ng-show="value == 0">kostenlos</span>' +
         '<span ng-show="value > 0">{{value | currency}}</span>'
-    }
+    };
   })
   .factory('Cart', function() {
     var items = [];
@@ -33,15 +35,16 @@ angular.module('tutorialApp', ['ngResource', 'ngAnimate', 'ngRoute'])
       }
     };
   })
-  .factory('Article',["$resource",function($resource) {
+  .factory('Article',['$resource',function($resource) {
     return $resource('articles.json', {}, {
       query: { method: 'GET', params: {}, isArray: true }
     });
   }])
-  .controller('ArticlesCtrl', function($scope, Article, Cart){
+  .controller('ArticlesCtrl', ['$scope', 'Article', 'Cart', function($scope, Article, Cart){
     $scope.cart = Cart;
     $scope.articles = Article.query();
-  })
-  .controller('CartCtrl', function($scope, Cart){
+  }])
+  .controller('CartCtrl', ['$scope', 'Article', 'Cart', function($scope, Cart){
     $scope.cart = Cart;
-  });
+  }]);
+}());

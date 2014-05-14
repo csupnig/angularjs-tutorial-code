@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tutorialApp', ['ngAnimate'])
+angular.module('tutorialApp', ['ngResource', 'ngAnimate'])
   .directive('price', function(){
     return {
       restrict: 'E',
@@ -26,12 +26,14 @@ angular.module('tutorialApp', ['ngAnimate'])
         }, 0);
       }
     };
-  })
-  .controller('ArticlesCtrl', function($scope, $http, Cart){
-    $scope.cart = Cart;
-    $http.get('articles.json').then(function(articlesResponse) {
-      $scope.articles = articlesResponse.data;
+  }).factory('Article',["$resource",function($resource) {
+    return $resource('articles.json', {}, {
+      query: { method: 'GET', params: {}, isArray: true }
     });
+  }])
+  .controller('ArticlesCtrl', function($scope, Article, Cart){
+    $scope.cart = Cart;
+    $scope.articles = Article.query();
   })
   .controller('CartCtrl', function($scope, Cart){
     $scope.cart = Cart;
