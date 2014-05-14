@@ -12,6 +12,7 @@ module.exports = {
     
     src:{
         css:['src/**/*.css'],
+        json:['src/**/*.json'],
         config: 'config/**/*',
         assets: 'src/assets/**/*',
         js: ['src/**/*.js'],

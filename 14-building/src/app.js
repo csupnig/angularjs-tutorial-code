@@ -44,7 +44,7 @@ angular.module('tutorialApp', ['ngResource', 'ngAnimate', 'ngRoute'])
     $scope.cart = Cart;
     $scope.articles = Article.query();
   }])
-  .controller('CartCtrl', ['$scope', 'Article', 'Cart', function($scope, Cart){
+  .controller('CartCtrl', ['$scope', 'Cart', function($scope, Cart){
     $scope.cart = Cart;
   }]);
 }());

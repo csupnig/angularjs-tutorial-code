@@ -72,6 +72,13 @@ gulp.task('app:js:build', function () {
 });
 
 
+/**
+ *  JSON
+ */
+gulp.task('app:json:build', function () {
+    return gulp.src(cfg.src.json)
+        .pipe(gulp.dest(cfg.dir.build));
+});
 
 /**
  * Vendor: copy
@@ -114,6 +121,7 @@ gulp.task('app:build', function () {
         'vendor:build',
         'app:assets:build',
         'app:js:build',
+        'app:json:build',
         'html:build',
         function () {
             deferred.resolve();
@@ -135,9 +143,9 @@ gulp.task('watch', ['app:build'], function () {
     // .js files
     gulp.watch('src/**/*.js', ['app:js:build']);
     // .html files
-    gulp.watch('src/**/*.html', ['app:html:build']);
+    gulp.watch('src/**/*.html', ['html:build']);
 
-    var buildDir = path.join(cfg.dir.build, cfg.dir.app, '**');
+    var buildDir = path.join(cfg.dir.build, '**');
     gulp.watch(buildDir).on('change', function (file) {
         server.changed(file.path);
     });
