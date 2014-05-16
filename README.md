@@ -1,3 +1,6 @@
+Reading material for this tutorial (German):
+- http://angularjs.de/artikel/angularjs-tutorial-deutsch
+
 Requirements:
 - clone this repository and run it in an http server
 
