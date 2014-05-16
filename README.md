@@ -4,6 +4,7 @@ Requirements:
 Optional requirements:
 - install Node.js
 - install NPM
+- install http-server
 - install Gulp
 - install Bower
 - install LiveReload Chrome Plugin (https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
