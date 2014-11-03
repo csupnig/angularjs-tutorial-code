@@ -27,6 +27,7 @@
         <tr ng-repeat="item in cart.getItems() track by $index">
           <td>{{item.name}}</td>
           <td>{{item.price | currency}}</td>
+          <td><button ng-click="cart.remove($index)">remove</button></td>
         </tr>
         <tr>
           <td>{{cart.getItems().length}} Artikel</td>

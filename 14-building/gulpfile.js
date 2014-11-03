@@ -6,7 +6,6 @@ var Q = require("q"),
     gutil = require('gulp-util');
     path = require('path') ,
     bowerFiles = require('gulp-bower-files'),
-    filter = require('gulp-filter'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish-ex'),
@@ -18,9 +17,7 @@ var Q = require("q"),
     inject = require("gulp-inject"),
     autoprefixer = require('gulp-autoprefixer'),
     htmlmin = require('gulp-htmlmin'),
-    runSequence = require('run-sequence'),
-    print = require('gulp-print'),
-    cliArgs = require('yargs').argv;
+    runSequence = require('run-sequence');
 
 /**
  * Load config files
@@ -68,6 +65,8 @@ gulp.task('app:js:build', function () {
     return gulp.src(src)
         .pipe(jshint())
         .pipe(jshint.reporter(jshintStylish))
+        .pipe(concat('app.js'))
+        .pipe(uglify())
         .pipe(gulp.dest(destDir));
 });
 

@@ -8,8 +8,12 @@
   <div class="container">
 
     <form>
-      <input type="text" ng-model="search">
+      <input type="text" ng-model="search" ng-pattern="/[0-9]+/">
+
       <p>Du suchst gerade nach: {{search}}</p>
+      
+      <input type="email" ng-model="email">
+      <p>Email: {{email}}</p>
     </form>
 
   </div>

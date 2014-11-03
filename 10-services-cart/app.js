@@ -14,6 +14,9 @@ angular.module('tutorialApp', ['ngResource'])
         return items.reduce(function(total, article) {
           return total + article.price;
         }, 0);
+      },
+      remove: function(index) {
+        items.splice(index, 1);
       }
     };
   })
