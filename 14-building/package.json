@@ -24,6 +24,8 @@
     "jshint-stylish-ex": "~0.2.0",
     "gulp-print": "^1.0.3",
     "gulp-watch": "^0.6.2",
-    "q": "^1.0.1"
+    "q": "^1.0.1",
+    "merge-stream":"~0.1.6",
+    "gulp-filter":"~1.0.2"
   }
 }
