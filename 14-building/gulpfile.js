@@ -9,7 +9,7 @@ var Q = require("q"),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish-ex'),
-    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglifyjs'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
@@ -65,8 +65,7 @@ gulp.task('app:js:build', function () {
     return gulp.src(src)
         .pipe(jshint())
         .pipe(jshint.reporter(jshintStylish))
-        .pipe(concat('app.js'))
-        .pipe(uglify())
+        .pipe(uglify('app.'+pkg.version+'.min.js'))
         .pipe(gulp.dest(destDir));
 });
 
