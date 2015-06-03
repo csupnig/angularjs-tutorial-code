@@ -86,8 +86,7 @@ gulp.task('app:js:build', function () {
         }));
 
     return mergestream(vendorJS, tsResult.js)
-        .pipe(concat('app.js'))
-        //.pipe(uglify('app.'+pkg.version+'.min.js'))
+        .pipe(uglify('app.'+pkg.version+'.min.js'))
         .pipe(gulp.dest(destDir));
 });
 
