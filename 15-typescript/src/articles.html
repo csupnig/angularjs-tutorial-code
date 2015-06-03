@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td>{{vm.cart.getItems().length}} Artikel</td>
-      <td>{{vm.cart.sum() | currency}}</td>
+      <td>{{vm.cart.getItems() | sumfilter | currency}}</td>
       <td></td>
     </tr>
   </table>

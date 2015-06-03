@@ -16,12 +16,6 @@ module at {
         addArticle(item:IArticle) {
             this.items.push(item);
         }
-
-        sum() : number {
-            return <number> this.items.reduce(function(total : number, article:IArticle) {
-                return total + article.price;
-            }, 0);
-        }
     }
 
 }

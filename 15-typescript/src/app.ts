@@ -2,7 +2,7 @@
 module at{
     'use strict';
 
-    angular.module('tutorialApp', ['atControllers', 'atDirectives','ngResource', 'ngAnimate', 'ngRoute'])
+    angular.module('tutorialApp', ['atControllers', 'atDirectives', 'atFilters','ngResource', 'ngAnimate', 'ngRoute'])
         .config(['$routeProvider', function($routeProvider) {
             $routeProvider
                 .when('/', { templateUrl: 'articles.html' })

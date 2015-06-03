@@ -13,6 +13,7 @@ module at{
         public static $inject = [
             '$scope', 'Cart'
         ];
+
         constructor(private $scope:ICartScope, public cart : CartService) {
             this.$scope.vm = this;
         }
