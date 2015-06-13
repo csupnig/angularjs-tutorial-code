@@ -32,7 +32,7 @@ describe("ArticleCtrl", () => {
             controller = $controller("ArticlesCtrl",{$scope:scope,Article:articleService,Cart:cartService});
         });
 
-        it('message has been initialized', function() {
+        it('articles has been initialized', function() {
             $httpBackend.expectGET("articles.json").respond([
                 {"id": "1", "name": "Pizza Vegetaria", "price": 5 },
                 {"id": "2", "name": "Pizza Salami",    "price": 5.5 },
