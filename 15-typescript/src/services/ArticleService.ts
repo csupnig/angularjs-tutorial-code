@@ -14,4 +14,14 @@ module at {
 
     }
 
+    angular.module('atServices')
+        .factory('Article',['$resource',($resource : ng.resource.IResourceService) : IArticleResource => {
+
+            // Return the resource, include your custom actions
+            return <IArticleResource> $resource('articles.json', {}, {
+                query: { method: 'GET', params: {}, isArray: true }
+            });
+
+        }])
+
 }

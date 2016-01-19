@@ -2,26 +2,22 @@
 module at{
     'use strict';
 
-    //Interface to describe the scope
-    export interface IArticleScope extends ng.IScope {
-        vm:ArticlesCtrl;
-    }
 
 
-
-
-    export class ArticlesCtrl {
+    export class ArticlesCtrl extends AbstractCtrl{
 
         public articles : Array<IArticle>;
 
         public static $inject = [
             '$scope', 'Article', 'Cart'
         ];
-        constructor(private $scope:IArticleScope, public article : IArticleResource, public cart : CartService) {
-            this.$scope.vm = this;
+        constructor(private $scope:ng.IScope, public article : IArticleResource, public cart : CartService) {
+            super();
             this.articles = article.query();
         }
 
     }
+
+    angular.module('atControllers').controller('ArticlesCtrl', ArticlesCtrl);
 
 }

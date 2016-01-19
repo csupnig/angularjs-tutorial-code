@@ -153,7 +153,7 @@ gulp.task('watch', ['app:build'], function () {
     // .css files
     gulp.watch('src/**/*.css', ['app:css:build']);
     // .js files
-    gulp.watch('src/**/*.js', ['app:js:build']);
+    gulp.watch('src/**/*.ts', ['app:js:build']);
     // .html files
     gulp.watch('src/**/*.html', ['html:build']);
 
