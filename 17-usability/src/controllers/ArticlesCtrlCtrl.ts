@@ -2,9 +2,7 @@
 module at{
     'use strict';
 
-
-
-    export class ArticlesCtrlCtrl extends AbstractCtrl{
+    export class ArticlesCtrlCtrl extends AbstractCtrl {
 
         public articles : Array<IArticle>;
 

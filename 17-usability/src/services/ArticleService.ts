@@ -2,8 +2,7 @@
 module at {
     'use strict';
 
-    export interface IArticle
-    {
+    export interface IArticle {
         id: number;
         name : string;
         price : number;
@@ -12,7 +11,7 @@ module at {
 
     export class ArticleService {
         private articlestore : Array<IArticle> = [];
-        private static DELAY : number = 10000;
+        private static DELAY : number = 5000;
 
         public static $inject : Array<string> = [
             '$q',

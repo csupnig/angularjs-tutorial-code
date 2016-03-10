@@ -2,9 +2,7 @@
 module at{
     'use strict';
 
-
-
-    export class ArticlesRouteCtrl extends AbstractCtrl{
+    export class ArticlesRouteCtrl extends AbstractCtrl {
 
         public static $inject : Array<string> = [
             'ArticleService',
